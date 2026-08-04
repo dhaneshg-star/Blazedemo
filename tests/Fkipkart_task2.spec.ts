@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test} from '@playwright/test';
 test.setTimeout(3000_0000);
 test('Enable Add to Compare', async ({ page }) => {
   await page.goto('https://www.flipkart.com/');
