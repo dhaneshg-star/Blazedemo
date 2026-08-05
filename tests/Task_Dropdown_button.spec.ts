@@ -1,0 +1,24 @@
+import { test } from '@playwright/test';
+test('Dropdownbox', async ({ page }) => {
+await page.goto('https://rahulshettyacademy.com/AutomationPractice/');
+console.log('main Site reached');
+await page.getByRole('heading', { name: 'Practice page' }).click();
+console.log('Heading :-Practice page');
+await page.getByText('Dropdown Example').click();
+console.log('Dropdown Example');
+await page.waitForTimeout(2000);
+await page.getByRole('combobox').click();
+await page.waitForTimeout(2000);
+console.log('combobox click');
+await page.waitForTimeout(2000);
+const Dropdownoption1 ='select#dropdown-class-example';
+await page.selectOption(Dropdownoption1, { value: 'option1'});
+console.log('click option1');
+await page.waitForTimeout(2000);
+await page.selectOption(Dropdownoption1, { index: 2});
+console.log('click option2');
+await page.waitForTimeout(2000);
+await page.selectOption(Dropdownoption1, { index: 3});
+console.log('click option3');
+await page.waitForTimeout(2000);
+});
