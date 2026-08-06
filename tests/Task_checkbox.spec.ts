@@ -1,0 +1,28 @@
+import { test } from '@playwright/test';
+test('Dropdownbox', async ({ page }) => {
+await page.goto('https://rahulshettyacademy.com/AutomationPractice/');
+console.log('main Site reached');
+await page.getByRole('heading', { name: 'Practice page' }).click();
+console.log('Heading :-Practice page');
+await page.getByText('Checkbox Example', { exact: true }).click();
+console.log('Checkbox Example');
+await page.waitForTimeout(2000);
+await page.locator('#checkBoxOption1').click();
+console.log('Option1 enable');
+await page.waitForTimeout(2000);
+await page.locator('#checkBoxOption2').click();
+console.log('Option2 enable');
+await page.waitForTimeout(2000);
+await page.locator('#checkBoxOption3').click();
+console.log('Option3 enable');
+await page.waitForTimeout(2000);
+await page.locator('#checkBoxOption3').click();
+console.log('Option3 unable');
+await page.waitForTimeout(2000);
+await page.locator('#checkBoxOption2').click();
+console.log('Option2 disable');
+await page.waitForTimeout(2000);
+await page.locator('#checkBoxOption1').click();
+console.log('Option2 disable');
+await page.waitForTimeout(2000);
+});

@@ -1,0 +1,24 @@
+import { test } from '@playwright/test';
+test('Switchtab', async ({ page, context }) => {
+await page.goto('https://rahulshettyacademy.com/AutomationPractice/');
+console.log('main Site reached');
+await page.getByRole('heading', { name: 'Practice page' }).click();
+console.log('Heading :-Practice page');
+await page.waitForTimeout(2000);
+await page.getByText('Mouse Hover Example').click();
+console.log('Mouse Hover Example');
+await page.waitForTimeout(2000);
+await page.locator('#mousehover').hover();
+console.log('Hovered over Mouse Hover button');
+await page.waitForTimeout(2000);
+await page.getByRole('link', { name: 'Top' }).click();
+console.log('Clicked Top option');
+await page.waitForTimeout(2000);
+await page.getByText('Mouse Hover Example').click();
+await page.waitForTimeout(2000);
+await page.locator('#mousehover').hover();
+await page.waitForTimeout(2000);
+await page.getByRole('link', { name: 'Reload' }).click();
+console.log('Clicked Reload option');
+await page.waitForTimeout(7000);
+});
