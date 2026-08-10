@@ -1,5 +1,5 @@
 import { test,expect } from '@playwright/test';
-test('Switchtab', async ({ page, context }) => {
+test('Switchtab', async ({ page }) => {
 await page.goto('https://rahulshettyacademy.com/AutomationPractice/');
 await expect(page).toHaveURL('https://rahulshettyacademy.com/AutomationPractice/');
 console.log('main Site reached and verified');
