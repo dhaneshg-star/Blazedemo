@@ -1,8 +1,11 @@
 import { test } from '@playwright/test';
+import { FlipkartPage } from '../pages/Flipkart_Task2';
 test('test', async ({ page }) => {
-  await page.goto('https://www.flipkart.com/');
+
+await page.goto('https://www.flipkart.com/');
+const flipkartPage = new FlipkartPage(page);
   await page.waitForTimeout(1000);
-  await page.getByRole('button', { name: '✕' }).click();
+  await flipkartPage.closePopup().click();
   await page.waitForTimeout(1000);
   await page.getByRole('textbox', {
     name: 'Search for Products, Brands'
@@ -22,6 +25,4 @@ test('test', async ({ page }) => {
   await page.waitForTimeout(1000);
   const page1 = await page1Promise;
   await page1.waitForLoadState();
-  await page1.waitForTimeout(1000);
-
 });
