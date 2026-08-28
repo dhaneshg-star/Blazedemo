@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { FlipkartPage } from '../pages/Flipkart8';
+import { FlipkartPage } from '../pages/Flipkart_Task2';
 test('Compare', async ({ page }) => {
 await page.goto(process.env.FLIPKART_URL!);
 const flipkart = new FlipkartPage(page);
@@ -9,5 +9,11 @@ await flipkart.searchBox().fill(
   );
 await flipkart.pressEnter();
   // Wait for search results
-  //await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('networkidle');
+  // Click the first "Add to Compare"
+  const addToCompare = page
+    .locator('span:has-text("Add to Compare")')
+    .first();
+  await addToCompare.scrollIntoViewIfNeeded();
+  await addToCompare.click({ force: true });
 });

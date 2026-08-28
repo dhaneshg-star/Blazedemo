@@ -5,4 +5,3 @@ test('Login using environment configuration', async ({ page }) => {
   await page.locator('input').nth(1).fill(process.env.ADMIN_PASSWORD!);
   await page.getByRole('button', { name: 'Login' }).click();
 });
-

@@ -1,15 +1,18 @@
 import { Page } from '@playwright/test';
 export class FlipkartPage {
-readonly page: Page;
-constructor(page: Page) {
-this.page = page;
+  constructor(private page: Page) {}
+  closePopup() {
+    return this.page.getByRole('button', { name: '✕' });
   }
-  // Locators
-  closePopup = () =>
-    this.page.getByRole('button', { name: '✕' });
-  searchBox = () =>
-    this.page.getByRole('textbox', {
-      name: 'Search for Products, Brands',
-    });
-  pressEnter = () => this.page.keyboard.press('Enter');
+  searchBox() {
+    return this.page.getByRole('textbox');
+  }
+  pressEnter() {
+    return this.searchBox().press('Enter');
+  }
+  addToCompare() {
+    return this.page
+      .locator('span:has-text("Add to Compare")')
+      .first();
+  }
 }
