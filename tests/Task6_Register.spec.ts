@@ -2,7 +2,7 @@ import { test } from '@playwright/test';
 import { RegisterLoginPage } from '../pages/Task6_register';
 
 test('Register and Login User', async ({ page }) => {
-
+ 
   const registerLoginPage = new RegisterLoginPage(page);
 
   // Open registration page
