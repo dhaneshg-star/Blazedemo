@@ -7,6 +7,7 @@ export class LoginPage {
   readonly loginButton: Locator;
 
   constructor(page: Page) {
+
     this.page = page;
 
     this.email = page.getByRole('textbox', {

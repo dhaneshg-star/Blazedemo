@@ -8,6 +8,7 @@ test.describe('Login and Product Cart Workflow', () => {
     await loginPage.login(process.env.LOGIN_EMAIL!,process.env.LOGIN_PASSWORD!);
     console.log('Login successful');
 
+    
     // Products
     const productPage = new ProductPage(page);
 
